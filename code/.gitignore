@@ -2,4 +2,7 @@
 # 8051 specific ignores
 ###########################
 *~
-
+*.adf
+*.bin
+*.hex
+*.lst
