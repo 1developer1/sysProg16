@@ -10,6 +10,7 @@ randomMem	EQU 0x22	;one byte that stores the start address of the generated rand
 randomSequenceGenerator:
 	mov	randomAmount, #08H	;this can be removed later and randomAmount can be set from the outside
 	mov	randomMem, #30H		;this can be removed later and randomMem can be set from the outside
+	mov	rand8reg, TL0
 	mov	R7, randomAmount
 	mov	R0, randomMem		;the start address of the random number storage
 randLoop:
