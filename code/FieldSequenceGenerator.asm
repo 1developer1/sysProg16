@@ -10,7 +10,7 @@ generateFieldSequence:
 	mov	topLeft, #11111010b		;P0.0 & P0.2
 	mov	topRight, #11110110b		;P0.0 & P0.3
 	mov	bottomLeft, #11111001b		;P0.1 & P0.2
-	mov	bottomRight, #11110101b;	;P0.1 & P0.3
+	mov	bottomRight, #11110101b		;P0.1 & P0.3
 	;initialize utility registers
 	mov	sequenceMem, #58H
 	mov	R7, randomAmount
