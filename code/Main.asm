@@ -5,8 +5,8 @@ ORG 000h
 
 START:
 	call	initializeTimer0
-	call	randomSequenceGenerator
-
+	call	generateRandomNumbers
+	call	generateFieldSequence
 
 initializeTimer0:
 	mov	TMOD, #02H	;set timer0 to 8-bit Time Mode
@@ -14,3 +14,4 @@ initializeTimer0:
 	ret
 
 include RandomNumberGenerator.asm
+include FieldSequenceGenerator.asm

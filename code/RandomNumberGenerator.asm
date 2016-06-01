@@ -7,7 +7,7 @@ rand8reg 	EQU 0x20	;one byte that stores a single 8bit random number
 randomAmount	EQU 0x21	;one byte that stores the amount of generated random numbers
 randomMem	EQU 0x22	;one byte that stores the start address of the generated random numbers.
 
-randomSequenceGenerator:
+generateRandomNumbers:
 	mov	randomAmount, #08H	;this can be removed later and randomAmount can be set from the outside
 	mov	randomMem, #30H		;this can be removed later and randomMem can be set from the outside
 	mov	rand8reg, TL0
@@ -21,7 +21,7 @@ randLoop:
 	call 	rand8
 	mov	@R0, rand8reg
 	inc	R0
-	jmp randLoop
+	jmp 	randLoop
 randLoopEnd:
 	ret
 	
