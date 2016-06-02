@@ -1,0 +1,20 @@
+ljmp INIT
+
+ORG 00H	
+
+INIT:
+mov R0,#01111110b
+mov R2,#01111110b
+mov R3,#00011000b
+mov R4,#11111111b
+
+CORRECT:
+mov P0,R0
+mov P1,R2
+jmp INIT
+
+INCORRECT:
+mov P0,R3
+mov P1,R4
+jmp INIT
+end
