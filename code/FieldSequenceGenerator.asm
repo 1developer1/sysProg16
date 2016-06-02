@@ -2,7 +2,8 @@ topLeft		equ 0x50;
 topRight	equ 0x51;
 bottomLeft	equ 0x52;
 bottomRight	equ 0x53;
-sequenceMem	equ 0x54;
+fieldMem	equ 0x54;
+sequenceMem	equ 0x55;
 
 
 generateFieldSequence:
@@ -12,11 +13,15 @@ generateFieldSequence:
 	mov	bottomLeft, #11111001b		;P0.1 & P0.2
 	mov	bottomRight, #11110101b		;P0.1 & P0.3
 	;initialize utility registers
-	mov	sequenceMem, #58H
+	mov	fieldMem, #60H
+	mov	sequenceMem, #70H
 	mov	R7, randomAmount
-	mov	R0, sequenceMem
+	mov	R3, fieldMem
+	mov	R2, sequenceMem
 	mov	R1, randomMem
 sequenceLoop:
+	mov	a, R3
+	mov	R0, a
 	mov	a, R7
 	jz 	sequenceLoopEnd
 	dec	a
@@ -43,18 +48,43 @@ sequenceLoopEnd:
 
 updateSourceAndTargetMem:
 	inc	R0
+	mov	a, R0
+	mov	R2, a
 	inc	R1
 	jmp	sequenceLoop
 setTopLeft:
+	mov	@R0, #01H
+	mov	a, R0
+	mov	R3, a
+	inc	R3
+	mov	a, R2
+	mov	R0, a
 	mov	@R0, topLeft
 	jmp	updateSourceAndTargetMem
 setTopRight:
+	mov	@R0, #02H
+	mov	a, R0
+	mov	R3, a
+	inc	R3
+	mov	a, R2
+	mov	R0, a
 	mov	@R0, topRight
 	jmp	updateSourceAndTargetMem
 setBottomLeft:
+	mov	@R0, #03H
+	mov	a, R0
+	mov	R3, a
+	inc	R3
+	mov	a, R2
+	mov	R0, a
 	mov	@R0, bottomLeft
 	jmp	updateSourceAndTargetMem
 setBottomRight:
+	mov	@R0, #04H
+	mov	a, R0
+	mov	R3, a
+	inc	R3
+	mov	a, R2
+	mov	R0, a
 	mov	@R0, bottomRight
 	jmp	updateSourceAndTargetMem
-	
