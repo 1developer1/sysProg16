@@ -51,6 +51,7 @@ updateSourceAndTargetMem:
 	mov	a, R0
 	mov	R2, a
 	inc	R1
+	call showSequence
 	jmp	sequenceLoop
 setTopLeft:
 	mov	@R0, #01H
@@ -88,3 +89,5 @@ setBottomRight:
 	mov	R0, a
 	mov	@R0, bottomRight
 	jmp	updateSourceAndTargetMem
+
+include DisplayLevelSequence.asm

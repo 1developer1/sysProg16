@@ -8,7 +8,7 @@ randomAmount	EQU 0x21	;one byte that stores the amount of generated random numbe
 randomMem	EQU 0x22	;one byte that stores the start address of the generated random numbers.
 
 generateRandomNumbers:
-	mov	randomAmount, #0FH	;this can be removed later and randomAmount can be set from the outside
+	mov	randomAmount, #06H	;this can be removed later and randomAmount can be set from the outside
 	mov	randomMem, #30H		;this can be removed later and randomMem can be set from the outside
 	mov	rand8reg, TL0
 	mov	R7, randomAmount
