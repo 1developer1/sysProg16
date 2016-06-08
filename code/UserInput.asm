@@ -1,10 +1,10 @@
 ; Super Mario says
 ; Program part to get the user input
 
-userinput EQU 0x30 			;one byte for user inputs
+userinput EQU 0x48 			;one byte for user inputs
 remaininginputs EQU 0x31	
 
-initialize:
+initializeUserInput:
 	mov userinput, #40h     	;startadress for user inputs
 	mov remaininginputs,#010b 	;TODO: use randomamount!!
 	mov R1, P1			;saves combination of input bits in register
@@ -21,7 +21,7 @@ getuserinput:
 	mov a, P1	
 	jz getuserinput
 	mov @R0, P1			;saves input bits to the adress in r0
-	inc R0
+	inc R0				;increments the value of user inputs
 	dec remaininginputs
 	mov a, remaininginputs
 	jz endofinput

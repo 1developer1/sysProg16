@@ -72,7 +72,7 @@ setTopRight:
 	mov	@R0, topRight
 	jmp	updateSourceAndTargetMem
 setBottomLeft:
-	mov	@R0, #03H
+	mov	@R0, #04H
 	mov	a, R0
 	mov	R3, a
 	inc	R3
@@ -81,7 +81,7 @@ setBottomLeft:
 	mov	@R0, bottomLeft
 	jmp	updateSourceAndTargetMem
 setBottomRight:
-	mov	@R0, #04H
+	mov	@R0, #08H
 	mov	a, R0
 	mov	R3, a
 	inc	R3
