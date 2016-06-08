@@ -27,6 +27,6 @@ getuserinput:
 	jz endofinput
 	jmp showinputrequestandwait
 endofinput:
-	end
+	call initializeSequenceCheck
 
 include SequenceCheck.asm
