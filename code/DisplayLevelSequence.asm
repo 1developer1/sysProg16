@@ -1,23 +1,16 @@
-org 0h
-value equ 70h
-ljmp go
+value equ 68h
+countdown equ 78h
 
-org 0000bh
+
+mov value, #70h
+mov R1, value
 showSequence:
-	mov R1, value
-	mov P1, @R1
-	inc value
-	call showsequence
-	reti
-	
-go:
-	mov TMOD, #000000010b
-	mov TL0,#155
-	mov TL1, #155
-	mov TCON, #00010000b
-	mov ip, #0
-	setb EA
-	setb ET0
+	mov P0, @R1
+	inc R1	
 
-haupt:
-sjmp haupt
+mov countdown, #00100000b
+countdown:
+	dec countdown
+	mov a, countdown
+	jz showsequence
+	jmp countdown
