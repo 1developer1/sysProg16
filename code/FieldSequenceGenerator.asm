@@ -3,10 +3,11 @@ topRight	equ 0x51;
 bottomLeft	equ 0x52;
 bottomRight	equ 0x53;
 fieldMem	equ 0x54;
-sequenceMem	equ 0x55;
+sequenceMem	equ 0x55;v
 
 
 generateFieldSequence:
+	
 	;initialize port allocation
 	mov	topLeft, #11111010b		;P0.0 & P0.2
 	mov	topRight, #11110110b		;P0.0 & P0.3

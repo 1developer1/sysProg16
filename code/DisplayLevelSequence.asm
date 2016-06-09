@@ -1,16 +1,17 @@
-value equ 68h
 countdown equ 78h
-
-
-mov value, #70h
-mov R1, value
+temp equ 79h
+temp2 equ 80h
 showSequence:
-	mov P0, @R1
-	inc R1	
+	mov temp, R0
+	mov R0, sequenceMem
+	mov P0, @R0
+	inc R0
+	mov temp2, R0
+	mov R0, temp		
 
 mov countdown, #00100000b
 countdown:
 	dec countdown
 	mov a, countdown
-	jz showsequence
-	jmp countdown
+	jnz countdown
+	ret
